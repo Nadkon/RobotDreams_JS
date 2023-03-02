@@ -1,23 +1,35 @@
 /*
-Написати скрипт, який буде запитувати користувача 2 числа, після введення яких має показатись вікно з результатом суми, різниці, додатку і ділення даних чисел.
-Створити новий документ і підключити скрипт на сторінку. Діалогове вікно має відкриватись при завантаженні документу.
-Створити новий репозиторій і відправити зміни в новостворений репозиторій та додайте посилання на нього в особистий кабінет.
+Використовуючи скрипт з заняття 21 доповнити його наступним:
+
+1. Ввести перевірку на 0 при ділені. Якщо друге число нуль – виводити повідомлення про помилку замість результату ділення.
+
+2. Якщо перше число меньше другого показувати повідомлення “Ви впевнені, що хочете продовжити операцію?”. Після підтвердження – показати результат. віднімання, в противному випадку пропустити повідомлення з показом результату
+
+3. Якщо одне з полів пусте – показати помилку і не виконувати подальші операції.
+
+4. Додайте посилання на репозиторій в особистий кабінет.
 */
 
-const a = parseInt(prompt("Enter any number"));
+let a = parseInt(prompt("Enter any number"));
 let b = parseInt(prompt("Enter any number, exept '0'"));
-
-const sum = a + b;
-const substraction = a - b;
-let division;
-if (b !== 0) {
-  division = a / b;
+if (isNaN(a) || isNaN(b)) {
+  alert(
+    "Error! One or two numbers are missing! Reload the page and try again!"
+  );
 } else {
-  division = "You entered 0, but it is not possible to divide by 0";
+  if (b !== 0) {
+    alert(`division : ${a / b};`);
+  } else {
+    alert("You entered 0, but it is not possible to divide by 0");
+  }
+  if (a < b) {
+    if (confirm("Are you sure you want to continue?")) {
+      alert(`substraction : ${a - b};`);
+    }
+  } else {
+    alert(`substraction : ${a - b};`);
+  }
+  alert(`addition : ${a + b}`);
+
+  alert(`multiplication : ${a * b}`);
 }
-const multiplication = a * b;
-alert(`
-  addition : ${sum};
-  substraction : ${substraction};
-  division : ${division};
-  multiplication : ${multiplication}`);
