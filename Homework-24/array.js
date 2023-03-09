@@ -1,7 +1,6 @@
 const arrayNumbers = [487, 32, 6, 83, 9432, 3, 738, 7, 12324, 9843];
 
 function searchMin(array) {
-
   let min = array[0];
   for (let i = 0; i < array.length; i++) {
     if (min > array[i]) {
@@ -13,12 +12,16 @@ function searchMin(array) {
 
 function searchMax(array) {
   let max = array[0];
-  for (let i = 0; i < array.length; i++) {
+  let i = 0;
+
+  while (i < array.length) {
     if (max < array[i]) {
       max = array[i];
     }
+    i++;
   }
-    console.log(`max is ${max}`);
+
+  console.log(`max is ${max}`);
 }
 
 searchMax(arrayNumbers);
