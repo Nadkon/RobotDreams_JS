@@ -1,11 +1,15 @@
 let a = parseInt(prompt("Enter any number"));
 let b = parseInt(prompt("Enter any number, except '0'"));
 
+function errorMessage() {
+  alert(
+    "Error! One or two numbers are missing! Reload the page and try again!"
+  );
+}
+
 function divide(a, b) {
   if (isNaN(a) || isNaN(b)) {
-    alert(
-      "Error! One or two numbers are missing! Reload the page and try again!"
-    );
+    errorMessage();
   } else if (b !== 0) {
     alert(`division : ${a / b};`);
   } else {
@@ -15,9 +19,7 @@ function divide(a, b) {
 
 function substract(a, b) {
   if (isNaN(a) || isNaN(b)) {
-    alert(
-      "Error! One or two numbers are missing! Reload the page and try again!"
-    );
+    errorMessage();
   } else if (a < b) {
     if (confirm("Are you sure you want to continue?")) {
       alert(`substraction : ${a - b};`);
@@ -29,9 +31,7 @@ function substract(a, b) {
 
 function add(a, b) {
   if (isNaN(a) || isNaN(b)) {
-    alert(
-      "Error! One or two numbers are missing! Reload the page and try again!"
-    );
+    errorMessage();
   } else {
     alert(`addition : ${a + b}`);
   }
@@ -39,9 +39,7 @@ function add(a, b) {
 
 function multiply(a, b) {
   if (isNaN(a) || isNaN(b)) {
-    alert(
-      "Error! One or two numbers are missing! Reload the page and try again!"
-    );
+    errorMessage();
   } else {
     alert(`multiplication : ${a * b}`);
   }
