@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/styles-for-CV/style.css">
+</head>
+
+<body>
+
+    <div class="m-container js-container"></div>
+    <div class="example">
+        <button class="js-button">Click me</button>
+    </div>
+
+    <div class="body main-theme">
+        <div class="grid-container">
+            <!-- block1 -->
+            <div class="left-side-bar side">
+                <div class="sticky-container">
+                    <div class="header">
+                        <h1 class="h1"><span class="white"> Nadiia</span> Kononykhina</h1>
+                        <div class="img">
+                            <img src="./img/avatar.jpg" alt="avatar" class="avatar" />
+                        </div>
+                    </div>
+                    <div class="contact">
+                        <h2>Contact</h2>
+                        <h3>Address</h3>
+                        <span class="element"> Kyiv, Ukraine</span>
+                        <h3>Phone</h3>
+
+                        <span class="element"><a href="tel:+380999030943"></a>+380999030943</span>
+                        <h3>E-mail</h3>
+
+                        <span class="element"><a href="mailto:nadkon@gmail.com">nadkon@gmail.com</a></span>
+                    </div>
+
+                    <div class="language">
+                        <h2>Languages</h2>
+                        <p>Ukrainian - native</p>
+                        <p>English - C1</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-side-bar">
+                <!-- block2 -->
+                <div class="summary section">
+                    <h2>
+                        <sup>S</sup>
+                        Summary
+                    </h2>
+                    <p>
+                    <p><em>switcher to IT area:</em> Frontend developer</p>
+                    </p>
+                    <div class="btn"><a href="./form.html">Hire me</a></div>
+                </div>
+
+                <!-- block3 -->
+                <div class="skills section">
+                    <h2>
+                        <sup>H</sup>
+                        Skills Highlights
+                    </h2>
+                    <ul>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
+                    </ul>
+                </div>
+
+                <!-- block4 -->
+                <div class="experience section">
+                    <h2 class="">
+                        <sup>E</sup>
+                        Work Experience
+                    </h2>
+                    <div class="work-place">
+                        <p><span class="bold">Name of employer:</span> Worldwide Clinical trials</p>
+                        <p><span class="bold">Dates of employment:</span> 2005 to present</p>
+                        <p><span class="bold">Job title:</span> Depot Manager</p>
+                    </div>
+                    <div class="work-place previous-experience">
+                        <p><span class="bold">Name of employer:</span> East Site Management and Research</p>
+                        <p><span class="bold">Dates of employment:</span> 2004 - 2005</p>
+                        <p><span class="bold">Job title:</span> Office-Manager, Regulatory Affairs Associate</p>
+                    </div>
+
+                </div>
+
+
+                <!-- block5 -->
+                <div class="achievements section">
+                    <h2>
+                        <sup>A</sup>
+                        Achievements
+                    </h2>
+                    <ol>
+                        <li>Completed course for QA at EPAM</li>
+                        <li>Completed marathon at ITGo</li>
+                        <li>Received a tuition grant at RobotDreams</li>
+                        <li>......</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- test engine -->
+    <script src="testengine/jasmine.js"></script>
+    <script src="testengine/jasmine-test-reporter.js"></script>
+    <script src="testengine/TestManager.js"></script>
+
+    <!-- add your code import here -->
+    <script src="./src/index.js"></script>
+
+    <!-- add your test import here -->
+    <script src="./tests/index.test.js"></script>
+
+    <!-- run our code -->
+    <script>
+        window.onload = function () {
+            window.initiateTest();
+        };
+    </script>
+
+</body>
+
+</html>

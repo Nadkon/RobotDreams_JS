@@ -1,0 +1,39 @@
+$color-main: #0b151b;
+$color-secondary: #af2828;
+$color-header-blue: #1c8c49;
+$color-light: rgb(231, 221, 221);
+$color-black: rgb(12, 10, 10);
+$color-btn: #b5d900;
+
+// $color-btn-hover: #1b6600;
+$color-btn-hover: red;
+$bg-color-form: #b2d1f0;
+$bg-color-left: #dce5eb;
+
+.my-theme {
+  .left-side-bar {
+    background-color: $bg-color-left;
+    .header {
+      h1 {
+        color: $color-header-blue;
+      }
+      h2 {
+        border-bottom: 9px solid $color-secondary;
+      }
+    }
+  }
+  .right-side-bar {
+    section {
+      h2 {
+        border-bottom: 9px solid $color-secondary;
+      }
+    }
+    .btn {
+      a {
+        &:hover {
+          background-color: $color-btn-hover;
+        }
+      }
+    }
+  }
+}
