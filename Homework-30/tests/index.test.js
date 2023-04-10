@@ -46,11 +46,11 @@ describe("Check dividing", () => {
   });
 
   // НЕ ВІХОДИТЬ
-  //   it("should be error if a is NaN", function () {
-  //     spyOn(window, "errorMessage").and.returnValue("Error!");
-  //     expect(divide("string", 5)).toBe("Error!");
-  //     expect(errorMessage).toHaveBeenCalled();
-  //   });
+    // it("should be error if a is NaN", function () {
+    //   spyOn(window, "errorMessage").and.returnValue("Error!");
+    //   expect(divide("string", 5)).toBe("Error!");
+    //   expect(errorMessage).toHaveBeenCalled();
+    // });
 });
 
 describe("Check substraction", () => {
@@ -66,6 +66,7 @@ describe("Check multiplication", () => {
 });
 
 // Homework-26
+
 describe("Check increment", () => {
   const test1 = new Accumulator(2);
   it("Should be 3", function () {

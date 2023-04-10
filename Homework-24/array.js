@@ -8,6 +8,7 @@ function searchMin(array) {
     }
   }
   console.log(`min is ${min}`);
+  return min
 }
 
 function searchMax(array) {
@@ -20,8 +21,8 @@ function searchMax(array) {
     }
     i++;
   }
-
   console.log(`max is ${max}`);
+  return max;
 }
 
 searchMax(arrayNumbers);
