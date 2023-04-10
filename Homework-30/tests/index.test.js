@@ -46,11 +46,11 @@ describe("Check dividing", () => {
   });
 
   // НЕ ВІХОДИТЬ
-    // it("should be error if a is NaN", function () {
-    //   spyOn(window, "errorMessage").and.returnValue("Error!");
-    //   expect(divide("string", 5)).toBe("Error!");
-    //   expect(errorMessage).toHaveBeenCalled();
-    // });
+  // it("should be error if a is NaN", function () {
+  //   spyOn(window, "errorMessage").and.returnValue("Error!");
+  //   expect(divide("string", 5)).toBe("Error!");
+  //   expect(errorMessage).toHaveBeenCalled();
+  // });
 });
 
 describe("Check substraction", () => {
@@ -90,16 +90,15 @@ describe("Check decrement", () => {
 
 // Homework-28
 describe("Check click to enlarge photo", () => {
-   const desc = "<p>Check if the photo was clicked</p>";
+  const desc = "<p>Check if the photo was clicked</p>";
 
   describe(desc, () => {
     it("Check if photo was clicked", () => {
       spyOn(console, "log");
-    photoEnlarge({
-      target: "img",
-    });
+      photoEnlarge({
+        target: "img",
+      });
       expect(console.log).toHaveBeenCalled();
     });
+  });
 });
-});
-
