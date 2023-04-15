@@ -1,4 +1,4 @@
-const deadline = new Date(2023, 12, 31).getTime();
+const deadline = new Date(2023, 11, 31).getTime();
 const day = document.querySelector(".days");
 const hour = document.querySelector(".hours");
 const minute = document.querySelector(".minutes");
@@ -27,16 +27,3 @@ function timer() {
   setInterval(() => showTimer(), 1000);
 }
 timer();
-// const days = document.querySelector(".days");
-// let timer = 10;
-// function showTimer() {
-//   setInterval(() => {
-//     timer--;
-//     days.textContent = timer;
-//     if (timer === 0) {
-//       timer = 20;
-//     }
-//   }, 1000);
-// }
-
-// showTimer();
