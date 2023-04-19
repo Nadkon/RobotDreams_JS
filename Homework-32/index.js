@@ -18,7 +18,7 @@ function reposPrint(items) {
 
   items.forEach((item) => {
     div = document.createElement("div");
-    debugger;
+
     if (item.description === null) {
       div.innerHTML = `<h3>${i}. ${item.name}</h3>
       <a href="${item.clone_url}" target='_blank'>Click the link to see files for the project ${item.name}</a>

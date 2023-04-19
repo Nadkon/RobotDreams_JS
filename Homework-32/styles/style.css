@@ -181,6 +181,9 @@ body {
 .right-side-bar .experience .previous-experience:hover {
   opacity: 100%;
 }
+.right-side-bar .projects {
+  margin-left: 60px;
+}
 .right-side-bar .btn {
   width: 150px;
   height: 50px;
