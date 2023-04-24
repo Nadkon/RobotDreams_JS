@@ -7,12 +7,12 @@ const repos = document.querySelector(".repo");
 
 //Загрузка репозиторіїв
 
+
 async function repoLoad() {
   const allReposRaw = await fetch("https://api.github.com/users/nadkon/repos");
   const repo = await allReposRaw.json();
   reposPrint(repo);
 }
-
 function reposPrint(items) {
   let i = 1;
 
@@ -34,6 +34,8 @@ function reposPrint(items) {
   });
 }
 repoLoad();
+
+
 // Збільшення фото
 function photoEnlarge(e) {
   img.classList.toggle("animation");
