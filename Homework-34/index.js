@@ -1,7 +1,7 @@
 //Загрузка репозиторіїв
 const repos = document.querySelector(".repo");
 // token is valid only for 30 days srtated from 24Apr2023
-const token = "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";
+const token = "";
 const userName = "Nadkon";
 
 class Api {
