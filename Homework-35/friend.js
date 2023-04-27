@@ -34,9 +34,6 @@ async function getFriendCard() {
     .then((friends) => {
       const id = getIDFromFriend();
 
-      // to be deleted. It is just for checking
-      console.log(friends);
-
       friends.forEach((post) => {
         if (post.userId == id) {
           card = createFriendCardPost(post);
@@ -47,9 +44,13 @@ async function getFriendCard() {
 }
 
 async function getFriendName() {
-  let friendName;
   return fetch(API_users)
-    .then((response) => response.json())
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error ('User has no posts')
+      }
+      response.json();
+     })
     .then((friends) => {
       const id = getIDFromFriend();
       friends.forEach((friend) => {
@@ -58,7 +59,11 @@ async function getFriendName() {
           friendName.innerText = friend.name;
         }
       });
-    });
+    })
+      .catch(error=>{
+      const errorMessageBox = createErrorMessage(error.message);
+      friendCard.appendChild(errorMessageBox);
+    })
 }
 
 function createFriendCardPost(post) {
