@@ -1,5 +1,5 @@
 
-const API_URL = "https://gorest.co.in/public/v2/users";
+const API_URL = "https://jsonplaceholder.typicode.com/users";
 const friendsList = document.querySelector(".friends-list");
 
 function getFriends() {
@@ -30,13 +30,13 @@ function createFriend(friend) {
   const card = document.createElement('div')
   const friendEl = document.createElement("a");
   friendEl.classList.add("list-group-item", "list-group-item-action");
-  if (friend.status === 'inactive') {
-    friendEl.classList.add('red');
-  } else if (friend.status === "active") {
-friendEl.classList.add("green");
-  } else {
-    friendEl.classList.add("grey");
-  }
+//   if (friend.status === 'inactive') {
+//     friendEl.classList.add('red');
+//   } else if (friend.status === "active") {
+// friendEl.classList.add("green");
+//   } else {
+//     friendEl.classList.add("grey");
+//   }
   friendEl.href = `friend.html?id=${friend.id}`;
   friendEl.innerText = friend.name;
   card.appendChild(friendEl)

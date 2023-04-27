@@ -1,14 +1,25 @@
-.red{
+.red {
   font-style: italic;
   color: red;
 }
 
-.green{
+.green {
   font-weight: bold;
   color: green;
 }
 
-.grey{
+.grey {
   font-style: italic;
   color: grey;
+}
+
+.post-link {
+  color: blue;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.overflow {
+  border: 1px solid black;
+  height: 50px;
 }
