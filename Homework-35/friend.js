@@ -1,73 +1,64 @@
-const API_posts = "https://jsonplaceholder.typicode.com/posts";
-const API_users = "https://jsonplaceholder.typicode.com/users";
-const id = getIDFromFriend();
-
+import { createErrorMessage, getIDFromUrl } from "./function.js";
+import { API_posts, API_users } from "./constants.js";
+import {Friend} from "./constants.js";
 const friendCard = document.querySelector(".friend-card");
+const friendName = document.querySelector('friend-name');
 
-class Friend {
-  constructor(id) {
-    this.id = id;
-  }
-  async getFriend() {
-    const response = await fetch(`${API_URL}/${this.id}`);
-    const friend = await response.json();
-    this.name = friend.name;
-  }
-}
 
-function getIDFromFriend() {
-  const params = new URL(document.location).searchParams;
 
-  return params.get("id");
-}
-
-function createErrorMessage(message) {
-  const errorMessageBox = document.createElement("div");
-  errorMessageBox.classList.add("alert", "alert-danger");
-  errorMessageBox.innerText = message;
-  return errorMessageBox;
-}
+const friend = new Friend(getIDFromUrl());
+friend.getFriend();
 
 async function getFriendCard() {
   return fetch(API_posts)
-    .then((response) => response.json())
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("User has no posts");
+      }
+      return response.json();
+    })
     .then((friends) => {
-      const id = getIDFromFriend();
-
-      friends.forEach((post) => {
-        if (post.userId == id) {
-          card = createFriendCardPost(post);
-          friendCard.appendChild(card);
+      // debugger
+      const id = friend.id;
+      // console.log(friends);
+      friends.forEach((friend) => {
+        if (friend.userId == id) {
+          let post = createFriendCardPost(friend);
+          friendCard.appendChild(post);
         }
       });
+    })
+    .catch((error) => {
+      const errorMessageBox = createErrorMessage(error.message);
+      const btn = document.createElement("a");
+      btn.classList.add("btn", "btn-primary");
+      btn.href = "index.html";
+      btn.innerText = "Click to return back";
+      friendCard.appendChild(errorMessageBox);
+      friendCard.appendChild(btn);
     });
 }
 
 async function getFriendName() {
   return fetch(API_users)
     .then((response) => {
-      if (!response.ok) {
-        throw new Error ('User has no posts')
-      }
-      response.json();
-     })
+      return response.json();
+    })
     .then((friends) => {
-      const id = getIDFromFriend();
+      const id = getIDFromUrl();
       friends.forEach((friend) => {
         if (friend.id == id) {
           const friendName = document.querySelector(".friend-name");
           friendName.innerText = friend.name;
+        } else {
         }
       });
-    })
-      .catch(error=>{
-      const errorMessageBox = createErrorMessage(error.message);
-      friendCard.appendChild(errorMessageBox);
-    })
+    });
 }
 
 function createFriendCardPost(post) {
   getFriendName();
+
   const postEl = document.createElement("div");
   const postBody = document.createElement("div");
   const postTitle = document.createElement("a");
@@ -76,7 +67,7 @@ function createFriendCardPost(post) {
     "list-group-item-action",
     "post-link"
   );
-  postTitle.href = `post.html?id=${post.id}`;
+  postTitle.href = `post.html?id=${friend.id}:${post.id}`;
   postTitle.innerText = post.title;
 
   const postText = document.createElement("p");
@@ -86,7 +77,6 @@ function createFriendCardPost(post) {
   postBody.appendChild(postTitle);
   postBody.appendChild(postText);
   postEl.appendChild(postBody);
-
   return postEl;
 }
 getFriendCard();

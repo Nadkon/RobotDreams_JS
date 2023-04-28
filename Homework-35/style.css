@@ -24,3 +24,20 @@
   padding-left: 20px;;
   border: 1px solid black;
 }
+
+.post-name{
+  padding-left: 50px;
+  color:blueviolet;
+  font-style: italic;
+}
+
+.button{
+  display: block;
+  width: 250px;
+  margin: 0 auto;
+}
+.post-button{
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
