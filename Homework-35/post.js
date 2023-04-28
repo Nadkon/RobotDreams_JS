@@ -1,8 +1,6 @@
 import { getIDFromUrl, createErrorMessage } from "./function.js";
-import { API_posts, API_comments, API_users } from "./constants.js";
+import { API_posts, API_comments, API_users, postCard, postButton } from "./constants.js";
 
-const postCard = document.querySelector(".post-body");
-const postButton = document.querySelector(".button");
 
 postButton.addEventListener("click", () => {
   history.back();
@@ -63,6 +61,7 @@ async function getFriendName() {
       postCard.appendChild(errorMessageBox);
     });
 }
+
 async function getPostBody() {
   return fetch(API_posts)
     .then((response) => {
@@ -81,7 +80,5 @@ async function getPostBody() {
     });
 }
 
-getFriendName();
-function createPostCard() {}
 
 getPostCard();

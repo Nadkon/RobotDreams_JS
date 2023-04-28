@@ -1,13 +1,13 @@
 import { createErrorMessage, getIDFromUrl } from "./function.js";
 import { API_posts, API_users } from "./constants.js";
-import {Friend} from "./constants.js";
-const friendCard = document.querySelector(".friend-card");
-const friendName = document.querySelector('friend-name');
-
-
+import {Friend, friendCard, postButton} from "./constants.js";
 
 const friend = new Friend(getIDFromUrl());
 friend.getFriend();
+
+postButton.addEventListener("click", () => {
+  history.back();
+});
 
 async function getFriendCard() {
   return fetch(API_posts)
@@ -77,4 +77,5 @@ function createFriendCardPost(post) {
   postEl.appendChild(postBody);
   return postEl;
 }
+
 getFriendCard();
