@@ -8,11 +8,11 @@ function Accumulator(number) {
 }
 
 Accumulator.prototype.increment = function () {
-  return (this.number += 1);
+  return this.number++;
 };
 
 Accumulator.prototype.decrement = function () {
-  return (this.number -= 1);
+  return this.number--;
 };
 const test1 = new Accumulator(2);
 
