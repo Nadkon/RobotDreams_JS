@@ -18,9 +18,7 @@ async function getFriendCard() {
       return response.json();
     })
     .then((friends) => {
-      // debugger
       const id = friend.id;
-      // console.log(friends);
       friends.forEach((friend) => {
         if (friend.userId == id) {
           let post = createFriendCardPost(friend);

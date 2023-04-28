@@ -1,13 +1,12 @@
-import { getIDFromUrl } from "./function.js";
+import { getIDFromUrl, createErrorMessage } from "./function.js";
 import { API_posts, API_comments, API_users } from "./constants.js";
-import { Friend } from "./constants.js";
 
 const postCard = document.querySelector(".post-body");
 const postButton = document.querySelector(".button");
 
 postButton.addEventListener("click", () => {
   history.back();
- });
+});
 
 function createCommentCard(comment) {
   const commentEl = document.createElement("div");
@@ -44,6 +43,9 @@ async function getPostCard() {
 async function getFriendName() {
   return fetch(API_users)
     .then((response) => {
+      if (!response.ok) {
+        throw new Error("There are no comments to this post");
+      }
       return response.json();
     })
     .then((friends) => {
@@ -53,9 +55,12 @@ async function getFriendName() {
         if (friend.id == friendId) {
           const friendName = document.querySelector(".friend-name");
           friendName.innerText = `Name: ${friend.name}`;
-        } else {
         }
       });
+    })
+    .catch((error) => {
+      const errorMessageBox = createErrorMessage(error.message);
+      postCard.appendChild(errorMessageBox);
     });
 }
 async function getPostBody() {
