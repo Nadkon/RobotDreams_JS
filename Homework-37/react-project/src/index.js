@@ -3,11 +3,14 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import { Photo, ContactInfo, GetExperience } from "./App";
 import reportWebVitals from "./reportWebVitals";
+import photo from "./photo.webp";
 
-const photo = ReactDOM.createRoot(document.getElementById("img"));
-photo.render(
+const img = ReactDOM.createRoot(document.getElementById("img"));
+img.render(
+
   <React.StrictMode>
-    <Photo />
+    <Photo src={photo} />
+
   </React.StrictMode>
 );
 
