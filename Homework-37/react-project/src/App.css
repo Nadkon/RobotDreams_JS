@@ -1,0 +1,43 @@
+.App {
+  text-align: center;
+}
+*{
+  margin: 10px;
+}
+.photo {
+  height: 40vmin;
+  pointer-events: none;
+}
+.img{
+  text-align: center;
+}
+.contact{
+  border: 1px solid blue;
+}
+.element{
+  font-size: 16px;
+    padding-left: 26px;
+}
+
+.element a {
+  text-decoration: none;
+}
+
+.experience{
+  border: 1px solid blue
+}
+.experience p {
+  font-weight: 400;
+}
+.bold{
+  font-weight: 600;
+}
+
+.previous-experience {
+  opacity: 70%;
+  transition: opacity 1s ease-in 0s;
+}
+
+.previous-experience:hover {
+  opacity: 100%;
+}
