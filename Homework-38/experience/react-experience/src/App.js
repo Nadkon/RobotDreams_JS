@@ -33,6 +33,14 @@ class App extends React.Component {
     this.state = {
       works: [
         {
+          id: 1,
+          name: "Worldwide Clinical Trials",
+          title: "Depot Maganer",
+          description: "Manage Depot's operations",
+          link: "www.worldwide.com",
+          currentWork: true,
+        },
+        {
           id: 2,
           name: "East Site Managemen and Research",
           title: "Office Maganer",
