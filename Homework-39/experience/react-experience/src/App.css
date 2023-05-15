@@ -42,15 +42,13 @@ h1 {
 }
 .main {
   margin: 50px 100px;
-  width: 50%;
-  float: left;
+  width: 80%;
 }
 
 aside {
-  width: 20%;
+  width: 80%;
   margin-top: 50px;
-  margin-left: 5%;
-  float: left;
+  margin-left: 17%;
 }
 
 .main .work {

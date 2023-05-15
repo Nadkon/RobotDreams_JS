@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import Works from "./components/works";
 import AddWork from "./components/addWork";
+
+const url = "https://api.github.com/users/nadkon/repos";
 
 export function Photo(props) {
   return (
@@ -50,12 +52,37 @@ export function ShowCurrentJob() {
         <div>
           <span className="bold">Company:</span> {currentExperience.name}
         </div>
-        <div><span className="bold">Job title:</span> {currentExperience.title}</div>
-        <div><span className="bold">Job description:</span> {currentExperience.description}</div>
+        <div>
+          <span className="bold">Job title:</span> {currentExperience.title}
+        </div>
+        <div>
+          <span className="bold">Job description:</span>{" "}
+          {currentExperience.description}
+        </div>
         <a href={currentExperience.link}>Visit the site</a>
       </div>
     </div>
   );
+}
+
+export function GetRepo() {
+
+  useEffect(() => {
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => {
+        const repos = data.map((repo) => ({
+          id: repo.id,
+          title: repo.name,
+        }));
+        // ListRepo(repos);
+    
+      });
+  });
+
+}
+function ListRepo(repos) {
+  return (<div>{repos[0]}</div>)
 }
 
 class App extends React.Component {
