@@ -5,7 +5,6 @@ import AddWork from "./components/addWork";
 
 const url = "https://api.github.com/users/nadkon/repos";
 
-
 export function ContactInfo() {
   return (
     <div className="contact">
@@ -58,6 +57,7 @@ export function ShowCurrentJob() {
 }
 
 export function GetRepo() {
+  const [repos, setRepos] = useState([]);
 
   useEffect(() => {
     fetch(url)
@@ -66,16 +66,29 @@ export function GetRepo() {
         const repos = data.map((repo) => ({
           id: repo.id,
           title: repo.name,
+          link: repo.clone_url,
         }));
-        // ListRepo(repos);
-
+        setRepos(repos);
       });
   });
+  return (
+    <ul>
+      <h1>My repositories</h1>
+      {repos.map((repo) => (
+        <li key={repo.id}>
+          <div>
+            {" "}
+            <span className="bold">Repo title: </span>
+            {repo.title}{" "}
+          </div>
+          <span className="bold">Repo link: </span>
+          <a href={repo.link}>Click to visit</a>
+        </li>
+      ))}
+    </ul>
+  );
+}
 
-}
-function ListRepo(repos) {
-  return (<div>{repos[0]}</div>)
-}
 
 class App extends React.Component {
   constructor(props) {
