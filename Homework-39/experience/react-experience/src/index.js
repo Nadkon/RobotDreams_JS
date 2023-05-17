@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import App, { ShowCurrentJob, Photo, ContactInfo, GetRepo, ShowRepo } from "./App";
-import reportWebVitals from "./reportWebVitals";
+import App, { ShowCurrentJob, ContactInfo, GetRepo, ShowRepo } from "./App";
+import Photo from "./components/photo";
 import photo from "./photo.webp";
 
 const img = ReactDOM.createRoot(document.getElementById("img"));
@@ -41,4 +41,3 @@ repos.render(
   </React.StrictMode>
 );
 
-reportWebVitals();

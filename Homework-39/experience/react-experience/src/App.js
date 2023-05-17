@@ -5,14 +5,6 @@ import AddWork from "./components/addWork";
 
 const url = "https://api.github.com/users/nadkon/repos";
 
-export function Photo(props) {
-  return (
-    <div className="img">
-      <h1>Nadiia Kononykhina</h1>
-      <img src={props.src} className="photo" alt="photo" />
-    </div>
-  );
-}
 
 export function ContactInfo() {
   return (
@@ -76,7 +68,7 @@ export function GetRepo() {
           title: repo.name,
         }));
         // ListRepo(repos);
-    
+
       });
   });
 
