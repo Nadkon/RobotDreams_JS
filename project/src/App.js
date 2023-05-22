@@ -1,18 +1,30 @@
 import "./App.css";
 import React, { useEffect, useState } from "react";
+import Weather from "./components/weather";
 
-function App() {
-  const [lat, getLat] = useState([]);
-  const [long, getLong] = useState([]);
+export default function App() {
+  const [lat, setLat] = useState([]);
+  const [long, setLong] = useState([]);
+  const [data, setData] = useState([]);
 
   useEffect(() => {
-    navigator.geolocation.getCurrentPosition(function (position) {
-      getLat(position.coords.latitude);
-      getLong(position.coords.longitude);
-    });
+    const fetchData = async () => {
+      navigator.geolocation.getCurrentPosition(function (position) {
+        setLat(position.coords.latitude);
+        setLong(position.coords.longitude);
+      });
 
+      await fetch(
+        `${process.env.API_URL}/weather/?lat=${lat}&lon=${long}&units=metric&APPID=${process.env.API_KEY}`
+      )
+        .then((res) => res.json())
+        .then((result) => {
+          setData(result);
+          console.log(result);
+        });
+    };
+    fetchData();
   }, [lat, long]);
 
-  return <div className="App">{lat} and { long}</div>;
+  return <div className="App"></div>;
 }
-export default App;
